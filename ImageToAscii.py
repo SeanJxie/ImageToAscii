@@ -30,8 +30,7 @@ for y in range(0, ht, PXL_SIZE):
         newRow.append(rowSum / PXL_SIZE ** 2)
     ascii_img.append(newRow)
 
-colGrad = ('%', '+', '-', '.', ' ')
-interval = 255 / len(colGrad)
+colGrad = tuple(reversed('`",:;Il!i~+_-?][}{1)(|\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$'))interval = 255 / len(colGrad) # Provided by u/BoringGuyAbz from Reddit
 
 with open('outputAscii.txt', 'w') as out_file:
     for row in ascii_img:
