@@ -8,4 +8,4 @@ Convert an image to ASCII art. Uses ```opencv-python```.
 - ```colGrad```: the tuple of the characters used to make the ASCII art, with ```colGrad[0]``` being the darkest value and ```colGrad[-1]``` being the lightest value.
 
 # Examples
-![test](https://github.com/SeanJxie/ImageToAscii/blob/images/test.png?raw=true)
+![test](https://github.com/SeanJxie/ImageToAscii/blob/master/images/test.png)
