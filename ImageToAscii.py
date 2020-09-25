@@ -17,7 +17,7 @@ while 1:  # File path input loop
         print('\nInvalid file path.\n')
 
 ht, wt = img.shape[:2]
-PXL_SIZE = 1
+PXL_SIZE = gcd(ht, wt)
 ascii_img = []
 
 for y in range(0, ht, PXL_SIZE):
