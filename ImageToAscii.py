@@ -1,5 +1,5 @@
 import cv2
-from math import gcd
+from math import gcd, ceil
 import os
 
 """
@@ -8,7 +8,7 @@ Image to ASCII art with openCV
 
 """
 
-while 1: # File path input loop
+while 1:  # File path input loop
     imgPath = input('Image path: ')
     try:
         img = cv2.cvtColor(cv2.imread(imgPath), cv2.COLOR_BGR2GRAY)
@@ -17,7 +17,7 @@ while 1: # File path input loop
         print('\nInvalid file path.\n')
 
 ht, wt = img.shape[:2]
-PXL_SIZE = gcd(ht, wt)
+PXL_SIZE = 1
 ascii_img = []
 
 for y in range(0, ht, PXL_SIZE):
@@ -30,17 +30,20 @@ for y in range(0, ht, PXL_SIZE):
         newRow.append(rowSum / PXL_SIZE ** 2)
     ascii_img.append(newRow)
 
-colGrad = tuple(reversed('`",:;Il!i~+_-?][}{1)(|\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$')) # Provided by u/BoringGuyAbz from Reddit
-interval = 255 / len(colGrad) 
+# Dark to light
+CHARSET_1 = reversed('`",:;Il!i~+_-?][}{1)(|\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$')
+CHARSET_2 = '@#%+-. '
+
+colGrad = tuple(CHARSET_2)
+interval = 255 / len(colGrad)
 
 with open('outputAscii.txt', 'w') as out_file:
     for row in ascii_img:
         for gCol in row:
             for m in range(len(colGrad)):
                 if interval * m <= gCol <= interval * (m + 1):
-                    out_file.write(colGrad[m] + ' ')
+                    out_file.write(colGrad[m] * ceil(wt / ht))
 
         out_file.write('\n')
-
 
 input(f'Done! Output file has file path {os.path.abspath(os.getcwd())}\outputAscii.txt')
