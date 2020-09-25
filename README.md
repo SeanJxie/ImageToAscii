@@ -9,3 +9,4 @@ Convert an image to ASCII art. Uses ```opencv-python```.
 
 # Examples
 ![test](https://github.com/SeanJxie/ImageToAscii/blob/master/images/test.png)
+![puffin](https://github.com/SeanJxie/ImageToAscii/blob/master/images/puffin.PNG)
