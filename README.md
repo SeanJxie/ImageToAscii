@@ -1,7 +1,7 @@
 # ImageToAscii
 Convert an image to ASCII art with ```opencv-python```.
 
-# Customize Variables
+# Variables
 - ```PXL_SIZE```: the square root of the amount of pixels that each character represents (a value of 1 means that 1 character will represent 1^2=1 pixel).
   - Should be a common factor of the dimensions of the input image. By defualt, it is set as the greatest common factor.
   
